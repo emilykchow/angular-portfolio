@@ -1,34 +1,34 @@
-<section class="games-section">
-  <div class="section-heading">
-    <h2 class="section-heading__title">
+<section class="games">
+  <div class="games__heading">
+    <h2 class="games__heading__title">
       <i class="fas fa-gamepad" aria-hidden="true"></i>
       Current Game Rotation
     </h2>
 
-    <span class="section-heading__meta"> PC and PS5 </span>
+    <span class="games__heading__meta"> PC and PS5 </span>
   </div>
 
-  <div class="games-grid">
+  <div class="games__list">
     @for (game of gameRotation; track game.id) {
-      <article class="game-card">
-        <div class="game-card__image-wrapper">
-          <img [src]="game.image" [alt]="game.title" class="game-card__image" />
+      <article class="games__list__card">
+        <div class="games__list__card__image-wrapper">
+          <img [src]="game.image" [alt]="game.title" class="games__list__card__image" />
 
-          <div class="game-card__image-overlay"></div>
+          <div class="games__list__card__image-overlay"></div>
         </div>
 
-        <div class="game-card__badge">
+        <div class="games__list__card__badge">
           {{ game.badge }}
         </div>
 
-        <div class="game-card__details">
-          <h3 class="game-card__title">
+        <div class="games__list__card__details">
+          <h3 class="games__list__card__title">
             {{ game.title }}
           </h3>
 
-          <div class="game-card__metadata">
+          <div class="games__list__card__metadata">
             <span>{{ game.genre }}</span>
-            <span class="game-card__platform">
+            <span class="games__list__card__platform">
               {{ game.platform }}
             </span>
           </div>

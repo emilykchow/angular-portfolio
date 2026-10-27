@@ -5,7 +5,7 @@
 }
 
 /* ========================================
-   Base layout
+   base layout
 ======================================== */
 
 .portfolio {
@@ -67,7 +67,7 @@
     --portfolio-shadow: rgba(15, 23, 42, 0.12);
     --portfolio-toast-text: #047857;
     --portfolio-image-overlay: linear-gradient(180deg, transparent 15%, rgba(241, 245, 249, 0.95));
-    --portfolio-accent-text: rgb(0, 13, 193);
+    --portfolio-accent-text: #004254;
     --portfolio-accent-background-soft: rgba(79, 70, 229, 0.12);
     --portfolio-accent-border: rgb(0, 13, 193);
     --portfolio-accent-gradient-background: linear-gradient(120deg, #aacae7, #c28cff);
@@ -87,7 +87,7 @@
       rgba(224, 231, 255, 0.9),
       rgba(239, 246, 255, 0.95)
     );
-    --portfolio-project-icon-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+    --portfolio-project-icon-shadow: 0 4px 12px rgba(0, 66, 84, 0.1);
     --portfolio-game-card-shadow: 0 8px 22px rgba(49, 46, 129, 0.1);
     color-scheme: light;
   }
@@ -135,13 +135,12 @@
 
   &:hover {
     border-color: var(--portfolio-accent-border);
-    // background: var(--portfolio-accent-background-soft);
     color: var(--portfolio-accent-text);
   }
 }
 
 /* ========================================
-   Ambient background effects
+   ambient background
 ======================================== */
 
 .ambient-glow-background {
@@ -168,7 +167,7 @@
 }
 
 /* ========================================
-   Shared project and modal tags
+   shared project and modal tags
 ======================================== */
 
 .tag {
@@ -187,7 +186,7 @@
 }
 
 /* ========================================
-   Footer, modal, and notifications
+   footer, modal, and notifications
 ======================================== */
 
 .button {
@@ -234,7 +233,7 @@
 }
 
 /* ========================================
-   Shared interactions
+   shared interactions
 ======================================== */
 
 button,
@@ -248,7 +247,7 @@ button {
 }
 
 /* ========================================
-   Responsive layout
+   responsive layout
 ======================================== */
 
 @media (min-width: 640px) {

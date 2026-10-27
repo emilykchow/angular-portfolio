@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -28,7 +28,7 @@ export class ProjectsComponent {
       icon: 'fa-brands fa-codepen',
       iconBg: 'bg-sky-500/10',
       iconColor: 'text-sky-400',
-      url: 'https://emilykchow.vercel.app/',
+      url: 'https://emilykchow-react-portfolio.vercel.app',
       tags: ['React.js', 'HTML', 'SCSS'],
       image: '/assets/images/portfolio-react.jpg',
     },

@@ -1,18 +1,18 @@
-<section class="tech-section">
-  <div class="section-header">
-    <div class="section-header__titles">
-      <span class="section-title"> Capabilities </span>
+<section class="tech-stack">
+  <div class="tech-stack__header">
+    <div class="tech-stack__header__titles">
+      <span class="tech-stack__header__titles__subtitle"> Capabilities </span>
 
-      <h2 class="section-header__title">Tech Stack</h2>
+      <h2 class="tech-stack__header__titles__title">Tech Stack</h2>
     </div>
 
-    <!-- Technology filters -->
-    <div class="tech-filters" aria-label="Filter technologies">
+    <!-- tech stack filters -->
+    <div class="tech-stack__filters" aria-label="Filter tech stack">
       @for (filter of techFilters; track filter.id) {
         <button
           type="button"
-          class="filter-button"
-          [class.filter-button--active]="activeTechFilter() === filter.id"
+          class="tech-stack__filters__filter-button"
+          [class.tech-stack__filters__filter-button--active]="activeTechFilter() === filter.id"
           [attr.aria-pressed]="activeTechFilter() === filter.id"
           (click)="activeTechFilter.set(filter.id)"
         >
@@ -23,12 +23,15 @@
   </div>
 
   <!-- badges -->
-  <div class="tech-grid">
+  <div class="tech-stack__list">
     @for (tech of filteredTechStack(); track tech.id) {
-      <div class="tech-badge">
-        <i [class]="tech.icon + ' ' + tech.colorClass + ' tech-badge__icon'" aria-hidden="true"></i>
+      <div class="tech-stack__list__badge">
+        <i
+          [class]="tech.icon + ' ' + tech.colorClass + ' tech-stack__list__badge__icon'"
+          aria-hidden="true"
+        ></i>
 
-        <span class="tech-badge__name">
+        <span class="tech-stack__list__badge__name">
           {{ tech.name }}
         </span>
       </div>

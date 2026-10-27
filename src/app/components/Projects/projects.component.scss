@@ -55,17 +55,20 @@
       padding: 1.1rem;
       border: 1px solid $color-border;
       border-radius: $radius-xl;
-      background: var(--portfolio-project-card-background, var(--portfolio-card, rgba(2, 6, 23, 0.55)));
+      background: var(
+        --portfolio-project-card-background,
+        var(--portfolio-card, rgba(2, 6, 23, 0.55))
+      );
       box-shadow: var(
         --portfolio-project-card-shadow,
         0 0 0.5rem color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent)
       );
-
       cursor: pointer;
       transition:
         transform $transition,
         border-color $transition,
-        background $transition;
+        background $transition,
+        box-shadow $transition;
 
       &:hover {
         transform: translateY(-4px);
@@ -76,16 +79,10 @@
         );
       }
 
-      &__image {
-        position: absolute;
-        z-index: 1;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity $transition;
+      &:hover &__icon,
+      &:focus-within &__icon {
+        border-color: $color-accent-border;
+        color: var(--portfolio-accent-text, #38bdf8);
       }
 
       &:hover &__image,
@@ -100,6 +97,18 @@
         flex: 1;
         flex-direction: column;
         text-decoration: none;
+      }
+
+      &__image {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $transition;
       }
 
       &__main {
@@ -119,7 +128,10 @@
         height: 2.75rem;
         place-items: center;
         border: 1px solid $color-border;
-        border-radius: 0.85rem;
+        border-radius: 1rem;
+        background: var(--portfolio-project-icon-background, transparent);
+        color: $color-accent;
+        box-shadow: var(--portfolio-project-icon-shadow, none);
 
         i {
           font-size: 1.5rem;
@@ -149,50 +161,21 @@
           padding: 0.35rem 0.65rem;
           border: 1px solid $color-border;
           border-radius: 999px;
+          background: var(--portfolio-tag-background, rgba(14, 165, 233, 0.08));
+          color: $color-sky;
           font-size: 0.7rem;
           font-weight: 600;
-          background: rgba(14, 165, 233, 0.08);
-          color: $color-sky;
-          box-shadow: 0 0 0.3rem currentColor;
+          box-shadow: 0 0 0.2rem currentColor;
         }
       }
     }
   }
 }
 
-.projects__list__card:hover .projects__list__card__icon {
-  border-color: $color-accent-border;
-  color: var(--portfolio-accent-text, #38bdf8);
-}
-
-.projects__list__card {
-  border-color: $color-border;
-}
-
-.projects__list__card__icon {
-  border-color: $color-border;
-  border-radius: 1rem;
-  background: var(--portfolio-project-icon-background, transparent);
-  color: $color-accent;
-  box-shadow: var(--portfolio-project-icon-shadow, none);
-}
-
-.projects__list__card__tags__tag {
-  border-color: $color-border;
-  background: var(--portfolio-tag-background, rgba(14, 165, 233, 0.08));
-  color: $color-sky;
-}
-
 @media (max-width: 480px) {
-  .projects__header {
-    align-items: flex-start;
-  }
-
-  .filter-bar {
-    width: 100%;
-  }
-
-  .filter-button {
-    flex: 1;
+  .projects {
+    &__header {
+      align-items: flex-start;
+    }
   }
 }
