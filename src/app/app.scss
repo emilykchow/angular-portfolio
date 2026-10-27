@@ -41,7 +41,6 @@
     --portfolio-indigo: #818cf8;
     --portfolio-cyan: #67e8f9;
     --portfolio-shadow: rgba(0, 0, 0, 0.5);
-    --portfolio-toast-text: #6ee7b7;
     --portfolio-image-overlay: linear-gradient(180deg, transparent 15%, rgba(2, 6, 23, 0.95));
     --portfolio-accent-text: #fff;
     --portfolio-accent-background-soft: rgba(14, 165, 233, 0.15);
@@ -65,7 +64,6 @@
     --portfolio-indigo: #4f46e5;
     --portfolio-cyan: #004254;
     --portfolio-shadow: rgba(15, 23, 42, 0.12);
-    --portfolio-toast-text: #047857;
     --portfolio-image-overlay: linear-gradient(180deg, transparent 15%, rgba(241, 245, 249, 0.95));
     --portfolio-accent-text: #004254;
     --portfolio-accent-background-soft: rgba(79, 70, 229, 0.12);
@@ -183,67 +181,6 @@
   border-color: rgba(56, 189, 248, 0.3);
   background: rgba(14, 165, 233, 0.1);
   color: $color-cyan;
-}
-
-/* ========================================
-   footer, modal, and notifications
-======================================== */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  padding: 0.7rem 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.8rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  transition:
-    transform $transition,
-    background $transition,
-    border-color $transition;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-  border-color: var(--portfolio-accent-border);
-}
-
-.toast-notification {
-  position: fixed;
-  z-index: 20;
-  right: 1rem;
-  bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  max-width: calc(100% - 2rem);
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(52, 211, 153, 0.35);
-  border-radius: $radius-lg;
-  background: $color-surface;
-  color: var(--portfolio-toast-text);
-  box-shadow: 0 12px 32px var(--portfolio-shadow);
-}
-
-.toast-notification__message {
-  color: $color-text;
-  font-size: 0.85rem;
-}
-
-/* ========================================
-   shared interactions
-======================================== */
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
 }
 
 /* ========================================
