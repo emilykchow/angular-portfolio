@@ -1,0 +1,59 @@
+<section class="projects">
+  <div class="projects__header">
+    <div class="projects__header__titles">
+      <span class="projects__header__titles__subtitle"> Portfolio </span>
+
+      <h2 class="projects__header__titles__title">Featured Projects</h2>
+    </div>
+  </div>
+
+  <!-- project cards -->
+  <div class="projects__list">
+    @for (project of PROJECTS; track project.id) {
+      <article
+        class="projects__list__card"
+        role="button"
+        tabindex="0"
+        [attr.aria-label]="'View project: ' + project.title"
+      >
+        @if (project.image) {
+          <img
+            class="projects__list__card__image"
+            [src]="project.image"
+            alt=""
+            aria-hidden="true"
+          />
+        }
+
+        <a [href]="project.url" target="_blank">
+          <div class="projects__list__card__main">
+            <div class="projects__list__card__top">
+              <div
+                class="projects__list__card__icon"
+                [class]="project.iconBg + ' ' + project.iconColor"
+              >
+                <i [class]="project.icon" aria-hidden="true"></i>
+              </div>
+            </div>
+
+            <h3 class="projects__list__card__title">
+              {{ project.title }}
+            </h3>
+
+            <p class="projects__list__card__description">
+              {{ project.description }}
+            </p>
+          </div>
+
+          <div class="projects__list__card__tags">
+            @for (tag of project.tags; track tag) {
+              <span class="projects__list__card__tags__tag">
+                {{ tag }}
+              </span>
+            }
+          </div>
+        </a>
+      </article>
+    }
+  </div>
+</section>

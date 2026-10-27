@@ -1,0 +1,198 @@
+@use '../../../styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+.projects {
+  margin-top: 2.5rem;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+
+    &__titles {
+      display: grid;
+      gap: 0.35rem;
+
+      &__title {
+        margin: 0;
+        color: $color-white;
+        font-size: clamp(1.25rem, 4vw, 1.65rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      &__subtitle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $color-sky;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: 0.9rem;
+
+    &__card {
+      position: relative;
+      display: flex;
+      min-height: 13rem;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 1.1rem;
+      border: 1px solid $color-border;
+      border-radius: $radius-xl;
+      background: var(--portfolio-project-card-background, var(--portfolio-card, rgba(2, 6, 23, 0.55)));
+      box-shadow: var(
+        --portfolio-project-card-shadow,
+        0 0 0.5rem color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent)
+      );
+
+      cursor: pointer;
+      transition:
+        transform $transition,
+        border-color $transition,
+        background $transition;
+
+      &:hover {
+        transform: translateY(-4px);
+        border-color: $color-accent-border;
+        box-shadow: var(
+          --portfolio-project-card-hover-shadow,
+          0 0 0.5rem color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent)
+        );
+      }
+
+      &__image {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $transition;
+      }
+
+      &:hover &__image,
+      &:focus-within &__image {
+        opacity: var(--portfolio-project-image-opacity, 1);
+      }
+
+      a {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        text-decoration: none;
+      }
+
+      &__main {
+        flex: 1;
+      }
+
+      &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+
+      &__icon {
+        display: grid;
+        width: 2.75rem;
+        height: 2.75rem;
+        place-items: center;
+        border: 1px solid $color-border;
+        border-radius: 0.85rem;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+
+      &__title {
+        margin: 0;
+        color: $color-white;
+        font-size: 1rem;
+      }
+
+      &__description {
+        margin: 0.5rem 0 1rem;
+        color: $color-text-muted;
+        font-size: 0.85rem;
+        line-height: 1.6;
+      }
+
+      &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        &__tag {
+          display: inline-flex;
+          padding: 0.35rem 0.65rem;
+          border: 1px solid $color-border;
+          border-radius: 999px;
+          font-size: 0.7rem;
+          font-weight: 600;
+          background: rgba(14, 165, 233, 0.08);
+          color: $color-sky;
+          box-shadow: 0 0 0.3rem currentColor;
+        }
+      }
+    }
+  }
+}
+
+.projects__list__card:hover .projects__list__card__icon {
+  border-color: $color-accent-border;
+  color: var(--portfolio-accent-text, #38bdf8);
+}
+
+.projects__list__card {
+  border-color: $color-border;
+}
+
+.projects__list__card__icon {
+  border-color: $color-border;
+  border-radius: 1rem;
+  background: var(--portfolio-project-icon-background, transparent);
+  color: $color-accent;
+  box-shadow: var(--portfolio-project-icon-shadow, none);
+}
+
+.projects__list__card__tags__tag {
+  border-color: $color-border;
+  background: var(--portfolio-tag-background, rgba(14, 165, 233, 0.08));
+  color: $color-sky;
+}
+
+@media (max-width: 480px) {
+  .projects__header {
+    align-items: flex-start;
+  }
+
+  .filter-bar {
+    width: 100%;
+  }
+
+  .filter-button {
+    flex: 1;
+  }
+}

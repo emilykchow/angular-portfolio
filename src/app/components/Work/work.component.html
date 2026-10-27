@@ -1,0 +1,55 @@
+<section class="experience">
+  <div class="experience__header">
+    <div class="experience__header__titles">
+      <span class="experience__header__subtitle">Career Journey</span>
+
+      <h2 class="experience__header__title">Work Experience</h2>
+    </div>
+
+    <a
+      class="experience__header__button"
+      href="/assets/resume/EmilyChowResumeForPortfolio.pdf"
+      download="EmilyChowResume.pdf"
+    >
+      <i class="fas fa-download" aria-hidden="true"></i>
+      <span>Download Full Resume</span>
+    </a>
+  </div>
+
+  <!-- work experience timeline -->
+  <div class="experience__timeline">
+    @for (job of WORK_EXPERIENCE; track job.id) {
+      <article class="experience__timeline__card">
+        <span class="experience__timeline__card__node" [class]="job.accentColor"></span>
+
+        <div class="experience__timeline__card__content">
+          <div class="experience__timeline__card__header">
+            <h3 class="experience__timeline__card__company">
+              {{ job.company }}
+            </h3>
+
+            <span class="experience__timeline__card__period">
+              {{ job.period }}
+            </span>
+          </div>
+
+          <p class="experience__timeline__card__role">
+            {{ job.role }}
+          </p>
+
+          <p class="experience__timeline__card__description">
+            {{ job.description }}
+          </p>
+
+          <div class="experience__timeline__card__highlights">
+            @for (highlight of job.highlights; track highlight) {
+              <span class="experience__timeline__card__tag">
+                {{ highlight }}
+              </span>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

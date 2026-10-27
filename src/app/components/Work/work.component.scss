@@ -1,0 +1,172 @@
+@use '../../../styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+.experience {
+  margin-top: 2.5rem;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+
+    &__titles {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    &__title {
+      margin: 0;
+      color: $color-white;
+      font-size: clamp(1.25rem, 4vw, 1.65rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    &__subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $color-sky;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid $color-border;
+      border-radius: 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: $color-accent-gradient-background;
+      color: $color-white;
+      text-decoration: none;
+
+      &:hover {
+        transform: translateY(-1px);
+        border-color: $color-accent-border;
+      }
+    }
+  }
+
+  &__timeline {
+    display: grid;
+    gap: 0.9rem;
+
+    &__card {
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem;
+      border: 1px solid $color-border;
+      border-radius: $radius-xl;
+      background: var(--portfolio-panel, rgba(2, 6, 23, 0.45));
+      box-shadow: var(--portfolio-panel-shadow, none);
+      transition:
+        transform $transition,
+        border-color $transition,
+        background $transition;
+
+      &__header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.35rem 1rem;
+      }
+
+      &__content {
+        min-width: 0;
+        flex: 1;
+      }
+
+      &__company {
+        margin: 0;
+        color: $color-white;
+        font-size: 1.05rem;
+      }
+
+      &__period {
+        color: $color-text-muted;
+        font-size: 0.8rem;
+      }
+
+      &__role {
+        margin: 0.25rem 0 0;
+        color: $color-sky;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      &__description {
+        margin: 0.75rem 0;
+        color: $color-text-muted;
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      &__highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      &__node {
+        flex: 0 0 0.65rem;
+        width: 0.65rem;
+        height: 0.65rem;
+        margin-top: 0.35rem;
+        border-radius: 50%;
+        box-shadow: 0 0 14px currentColor;
+      }
+
+      &__tag {
+        display: inline-flex;
+        padding: 0.35rem 0.65rem;
+        border: 1px solid $color-border;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        background: var(--portfolio-tag-background, var(--portfolio-raised, rgba(15, 23, 42, 0.8)));
+        color: $color-text-muted;
+      }
+    }
+  }
+}
+
+.bg-sky {
+  background: #38bdf8;
+  color: #38bdf8;
+}
+
+.bg-indigo {
+  background: #818cf8;
+  color: #818cf8;
+}
+
+.bg-cyan {
+  background: #22d3ee;
+  color: #22d3ee;
+}
+
+.bg-slate {
+  background: #94a3b8;
+  color: #94a3b8;
+}
+
+@media (min-width: 640px) {
+  .experience-card {
+    padding: 1.5rem;
+  }
+}

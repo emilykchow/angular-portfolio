@@ -1,0 +1,129 @@
+@use '../../../styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+.tech-section {
+  margin-top: 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-header__titles {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $color-sky;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-header__title {
+  margin: 0;
+  color: $color-white;
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.tech-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.3rem;
+  border: 1px solid $color-border;
+  border-radius: 0.9rem;
+  background: var(--portfolio-control, rgba(2, 6, 23, 0.55));
+}
+
+.filter-button {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: $color-text-muted;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color $transition,
+    background $transition,
+    border-color $transition;
+}
+
+.filter-button:hover {
+  border-color: $color-accent-border;
+  color: $color-accent;
+  background: var(--portfolio-accent-background-soft);
+}
+
+.filter-button--active {
+  border-color: $color-accent-border;
+  background: $color-accent-soft;
+  color: $color-accent;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 0.9rem;
+}
+
+.tech-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  padding: 0.85rem 1rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  background: var(--portfolio-panel, var(--portfolio-card, rgba(2, 6, 23, 0.55)));
+  box-shadow: var(--portfolio-panel-shadow, none);
+  transition:
+    transform $transition,
+    border-color $transition,
+    background $transition;
+}
+
+.tech-filters {
+  border-color: $color-border;
+  background: var(--portfolio-control, rgba(2, 6, 23, 0.55));
+}
+
+.tech-badge__icon {
+  font-size: 1.25rem;
+}
+
+.tech-badge__name {
+  color: var(--portfolio-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    align-items: flex-start;
+  }
+
+  .tech-filters {
+    width: 100%;
+  }
+}

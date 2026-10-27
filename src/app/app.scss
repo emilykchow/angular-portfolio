@@ -1,0 +1,268 @@
+@use '../styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+/* ========================================
+   Base layout
+======================================== */
+
+.portfolio {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  overflow: hidden;
+  background: $color-bg;
+  color: $color-text;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  isolation: isolate;
+  transition:
+    background-color $transition,
+    color $transition;
+
+  &--dark {
+    --portfolio-bg: #0b0e14;
+    --portfolio-surface: rgba(15, 23, 42, 0.88);
+    --portfolio-surface-deep: #020617;
+    --portfolio-panel: rgba(2, 6, 23, 0.45);
+    --portfolio-card: rgba(2, 6, 23, 0.55);
+    --portfolio-raised: rgba(15, 23, 42, 0.8);
+    --portfolio-control: rgba(2, 6, 23, 0.6);
+    --portfolio-border: rgba(51, 65, 85, 0.8);
+    --portfolio-text: #cbd5e1;
+    --portfolio-text-muted: #94a3b8;
+    --portfolio-white: #fff;
+    --portfolio-sky: #38bdf8;
+    --portfolio-indigo: #818cf8;
+    --portfolio-cyan: #67e8f9;
+    --portfolio-shadow: rgba(0, 0, 0, 0.5);
+    --portfolio-toast-text: #6ee7b7;
+    --portfolio-image-overlay: linear-gradient(180deg, transparent 15%, rgba(2, 6, 23, 0.95));
+    --portfolio-accent-text: #fff;
+    --portfolio-accent-background-soft: rgba(14, 165, 233, 0.15);
+    --portfolio-accent-border: rgba(44, 123, 157, 0.8);
+    --portfolio-accent-gradient-background: linear-gradient(120deg, #7aa3ef, #050795);
+    color-scheme: dark;
+  }
+
+  &--light {
+    --portfolio-bg: #f1f5f9;
+    --portfolio-surface: rgba(255, 255, 255, 0.9);
+    --portfolio-surface-deep: #e2e8f0;
+    --portfolio-card: rgba(255, 255, 255, 0.82);
+    --portfolio-raised: #f1f5f9;
+    --portfolio-control: rgba(255, 255, 255, 0.92);
+    --portfolio-border: rgba(79, 70, 229, 0.18);
+    --portfolio-text: #0f172a;
+    --portfolio-text-muted: #64748b;
+    --portfolio-white: #0f172a;
+    --portfolio-sky: #0369a1;
+    --portfolio-indigo: #4f46e5;
+    --portfolio-cyan: #004254;
+    --portfolio-shadow: rgba(15, 23, 42, 0.12);
+    --portfolio-toast-text: #047857;
+    --portfolio-image-overlay: linear-gradient(180deg, transparent 15%, rgba(241, 245, 249, 0.95));
+    --portfolio-accent-text: rgb(0, 13, 193);
+    --portfolio-accent-background-soft: rgba(79, 70, 229, 0.12);
+    --portfolio-accent-border: rgb(0, 13, 193);
+    --portfolio-accent-gradient-background: linear-gradient(120deg, #aacae7, #c28cff);
+    --portfolio-panel: rgba(238, 242, 255, 0.78);
+    --portfolio-panel-shadow: 0 8px 20px rgba(49, 46, 129, 0.06);
+    --portfolio-tag-background: rgba(238, 242, 255, 0.8);
+    --portfolio-project-card-background:
+      radial-gradient(ellipse at top right, rgba(129, 140, 248, 0.16), transparent 58%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 255, 0.92));
+    --portfolio-project-card-shadow:
+      0 8px 24px rgba(49, 46, 129, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    --portfolio-project-card-hover-shadow:
+      0 16px 32px rgba(49, 46, 129, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    --portfolio-project-image-opacity: 0.12;
+    --portfolio-project-icon-background: linear-gradient(
+      145deg,
+      rgba(224, 231, 255, 0.9),
+      rgba(239, 246, 255, 0.95)
+    );
+    --portfolio-project-icon-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+    --portfolio-game-card-shadow: 0 8px 22px rgba(49, 46, 129, 0.1);
+    color-scheme: light;
+  }
+  ::selection {
+    color: $color-white;
+    background: #0ea5e9;
+  }
+  &__main {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 2rem, 56rem);
+    margin-inline: auto;
+    padding-top: 2rem;
+  }
+  &__frame {
+    padding: 1.5rem;
+    border: 1px solid $color-border;
+    border-radius: $radius-2xl;
+    background: $color-surface;
+    box-shadow: 0 25px 60px var(--portfolio-shadow);
+    backdrop-filter: blur(24px);
+  }
+}
+
+.theme-toggle {
+  position: fixed;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  background: var(--portfolio-accent-background-soft);
+  color: $color-text;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px var(--portfolio-shadow);
+  backdrop-filter: blur(12px);
+  transition:
+    color $transition,
+    background-color $transition,
+    border-color $transition;
+
+  &:hover {
+    border-color: var(--portfolio-accent-border);
+    // background: var(--portfolio-accent-background-soft);
+    color: var(--portfolio-accent-text);
+  }
+}
+
+/* ========================================
+   Ambient background effects
+======================================== */
+
+.ambient-glow-background {
+  position: fixed;
+  z-index: 0;
+  width: min(90vw, 32rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+
+  &__top {
+    top: -15rem;
+    left: 50%;
+    background: rgba(56, 189, 248, 0.12);
+    transform: translateX(-50%);
+  }
+
+  &__bottom {
+    right: -12rem;
+    bottom: -12rem;
+    background: rgba(99, 102, 241, 0.12);
+  }
+}
+
+/* ========================================
+   Shared project and modal tags
+======================================== */
+
+.tag {
+  display: inline-flex;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.tag--accent {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(14, 165, 233, 0.1);
+  color: $color-cyan;
+}
+
+/* ========================================
+   Footer, modal, and notifications
+======================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition:
+    transform $transition,
+    background $transition,
+    border-color $transition;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: var(--portfolio-accent-border);
+}
+
+.toast-notification {
+  position: fixed;
+  z-index: 20;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: $radius-lg;
+  background: $color-surface;
+  color: var(--portfolio-toast-text);
+  box-shadow: 0 12px 32px var(--portfolio-shadow);
+}
+
+.toast-notification__message {
+  color: $color-text;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   Shared interactions
+======================================== */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ========================================
+   Responsive layout
+======================================== */
+
+@media (min-width: 640px) {
+  .portfolio__main {
+    padding-top: 4rem;
+  }
+
+  .portfolio__frame {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio__frame {
+    padding: 1rem;
+  }
+}

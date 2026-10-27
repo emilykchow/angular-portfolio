@@ -1,0 +1,39 @@
+<section class="games-section">
+  <div class="section-heading">
+    <h2 class="section-heading__title">
+      <i class="fas fa-gamepad" aria-hidden="true"></i>
+      Current Game Rotation
+    </h2>
+
+    <span class="section-heading__meta"> PC and PS5 </span>
+  </div>
+
+  <div class="games-grid">
+    @for (game of gameRotation; track game.id) {
+      <article class="game-card">
+        <div class="game-card__image-wrapper">
+          <img [src]="game.image" [alt]="game.title" class="game-card__image" />
+
+          <div class="game-card__image-overlay"></div>
+        </div>
+
+        <div class="game-card__badge">
+          {{ game.badge }}
+        </div>
+
+        <div class="game-card__details">
+          <h3 class="game-card__title">
+            {{ game.title }}
+          </h3>
+
+          <div class="game-card__metadata">
+            <span>{{ game.genre }}</span>
+            <span class="game-card__platform">
+              {{ game.platform }}
+            </span>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

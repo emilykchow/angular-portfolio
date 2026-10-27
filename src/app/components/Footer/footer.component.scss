@@ -1,0 +1,46 @@
+@use '../../../styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 0.5rem 0;
+
+  &__copyright {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 0.75rem;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 0.5rem;
+
+    &__social {
+      display: grid;
+      width: 2.25rem;
+      height: 2.25rem;
+      place-items: center;
+      border: 1px solid $color-border;
+      border-radius: 0.7rem;
+      background: $color-accent-soft;
+      color: $color-text;
+      transition:
+        color $transition,
+        border-color $transition,
+        background $transition;
+      -webkit-tap-highlight-color: transparent;
+
+      &:hover {
+        border-color: $color-accent-border;
+        color: $color-accent;
+      }
+    }
+  }
+}
