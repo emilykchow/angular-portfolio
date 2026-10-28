@@ -24,6 +24,8 @@
   transition:
     background-color $transition,
     color $transition;
+  --portfolio-section-title-size: 1.5rem;
+  --portfolio-section-subtitle-size: 0.75rem;
   --portfolio-project-box-glow: 0 0 0.5rem
     color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent);
 
@@ -48,6 +50,7 @@
     --portfolio-accent-background-soft: rgba(14, 165, 233, 0.15);
     --portfolio-accent-border: rgba(44, 123, 157, 0.8);
     --portfolio-accent-gradient-background: linear-gradient(120deg, #7aa3ef, #050795);
+    --portfolio-hero-glow: #fff;
     color-scheme: dark;
   }
 
@@ -71,6 +74,7 @@
     --portfolio-accent-background-soft: rgba(79, 70, 229, 0.12);
     --portfolio-accent-border: rgb(0, 13, 193);
     --portfolio-accent-gradient-background: linear-gradient(120deg, #aacae7, #c28cff);
+    --portfolio-hero-glow: rgba(160, 171, 242, 0.7);
     --portfolio-panel: rgba(238, 242, 255, 0.78);
     --portfolio-panel-shadow: 0 8px 20px rgba(49, 46, 129, 0.06);
     --portfolio-tag-background: rgba(238, 242, 255, 0.8);
@@ -121,6 +125,7 @@
   border: 1px solid $color-border;
   border-radius: 999px;
   background: var(--portfolio-accent-background-soft);
+  // opacity: 0.8;
   color: $color-text;
   font: inherit;
   font-size: 0.8rem;
