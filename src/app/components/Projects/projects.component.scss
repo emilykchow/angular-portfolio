@@ -120,9 +120,8 @@
         place-items: center;
         border: 1px solid $color-border;
         border-radius: 1rem;
-        background: var(--portfolio-project-icon-background, transparent);
         color: $color-accent;
-        box-shadow: var(--portfolio-project-icon-shadow, none);
+        box-shadow: var(--portfolio-project-icon-shadow);
 
         i {
           font-size: 1.5rem;
@@ -156,7 +155,6 @@
           color: $color-sky;
           font-size: 0.7rem;
           font-weight: 600;
-          box-shadow: 0 0 0.2rem currentColor;
         }
       }
     }

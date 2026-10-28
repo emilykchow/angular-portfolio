@@ -30,7 +30,12 @@ export class WorkComponent {
       period: 'May 2022 – Nov 2024',
       description:
         'Led a team to build a proprietary CRM system that optimized internal sales processes, and trained thousands of employees on internal web functions.',
-      highlights: ['Full-Stack', 'Proprietary CRM', 'POS Checkout System', 'Employee Training'],
+      highlights: [
+        'Full-Stack Development',
+        'Proprietary CRM',
+        'POS Checkout System',
+        'Employee Training',
+      ],
       accentColor: 'bg-indigo',
     },
     {
@@ -44,7 +49,7 @@ export class WorkComponent {
         'Virtual Event Platforms',
         'Interactive Experiences',
         'Revenue Impact',
-        'Client-Facing',
+        'Client Facing',
       ],
       accentColor: 'bg-cyan',
     },
@@ -59,5 +64,4 @@ export class WorkComponent {
       accentColor: 'bg-slate',
     },
   ];
-
 }
