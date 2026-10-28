@@ -55,14 +55,8 @@
       padding: 1.1rem;
       border: 1px solid $color-border;
       border-radius: $radius-xl;
-      background: var(
-        --portfolio-project-card-background,
-        var(--portfolio-card, rgba(2, 6, 23, 0.55))
-      );
-      box-shadow: var(
-        --portfolio-project-card-shadow,
-        0 0 0.5rem color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent)
-      );
+      background: var(--portfolio-project-card-background);
+      box-shadow: var(--portfolio-project-card-shadow, var(--portfolio-project-box-glow));
       cursor: pointer;
       transition:
         transform $transition,
@@ -73,10 +67,7 @@
       &:hover {
         transform: translateY(-4px);
         border-color: $color-accent-border;
-        box-shadow: var(
-          --portfolio-project-card-hover-shadow,
-          0 0 0.5rem color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent)
-        );
+        box-shadow: var(--portfolio-project-card-hover-shadow, var(--portfolio-project-box-glow));
       }
 
       &:hover &__icon,

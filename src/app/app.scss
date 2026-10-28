@@ -24,6 +24,8 @@
   transition:
     background-color $transition,
     color $transition;
+  --portfolio-project-box-glow: 0 0 0.5rem
+    color-mix(in srgb, var(--portfolio-accent-text) 25%, transparent);
 
   &--dark {
     --portfolio-bg: #0b0e14;

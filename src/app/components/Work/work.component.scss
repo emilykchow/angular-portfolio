@@ -45,16 +45,17 @@
       justify-content: center;
       gap: 0.55rem;
       padding: 0.7rem 1rem;
-      border: 1px solid $color-border;
+      border: 1px solid $color-sky;
       border-radius: 0.8rem;
       font-size: 0.8rem;
       font-weight: 700;
-      background: $color-accent-gradient-background;
-      color: $color-white;
+      background: var(--portfolio-panel);
+      color: $color-sky;
       text-decoration: none;
+      transition: transform 0.4s ease-in-out;
 
       &:hover {
-        transform: translateY(-1px);
+        transform: scale(1.05);
         border-color: $color-accent-border;
       }
     }
@@ -71,7 +72,7 @@
       padding: 1.25rem;
       border: 1px solid $color-border;
       border-radius: $radius-xl;
-      background: var(--portfolio-panel, rgba(2, 6, 23, 0.45));
+      background: var(--portfolio-panel);
       box-shadow: var(--portfolio-panel-shadow, none);
       transition:
         transform $transition,
@@ -138,7 +139,7 @@
         border-radius: 999px;
         font-size: 0.7rem;
         font-weight: 600;
-        background: var(--portfolio-tag-background, var(--portfolio-raised, rgba(15, 23, 42, 0.8)));
+        background: var(--portfolio-tag-background);
         color: $color-text-muted;
       }
     }
